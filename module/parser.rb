@@ -1,9 +1,14 @@
 require 'csv'
 require 'descriptive_statistics'
+require './module/anomaly.rb'
+require './module/analyse.rb'
 
 def parse(file, categories, logAnomalies = true, logSuccess = false)
     data = CSV.parse(File.read(file), headers: true)
     output = ""
+
+    heats_number = 0
+    anomalies = []
 
     categories.each { |category| 
 
@@ -11,11 +16,13 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
             round = roundRow["Round"]
 
             all = data.filter { |x| x["Category"] == category.name && x["Round"] == round }
-            next if all.empty?
+            next if all.empty? || category.round_to_skip.include?(round)
 
             couples = all.uniq { |x| x["Stn"] }.each { |couple|
 
-                category.criterias.each { |criteria| 
+                heats_number += 1
+
+                category.criterias.each { |criteria|
 
                     judges = all.filter { |x| x["Stn"] == couple["Stn"] }.uniq { |x| x["Judge"] }
                     samples = []
@@ -28,6 +35,7 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
                     if stdev >= criteria.threshold
                         puts "⚠️,#{line}" unless !logAnomalies
                         line = "yes,#{line}"
+                        anomalies.append(Anomaly.new(criteria.abreviation, category.name, category.group))
                     else
                         puts "✅,#{line}" unless !logSuccess
                         line = ",#{line}"
@@ -38,5 +46,5 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
             }
         }
     }
-    return output
+    return Analyse.new(output, anomalies, heats_number)
 end
