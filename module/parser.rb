@@ -1,7 +1,7 @@
 require 'csv'
 require 'descriptive_statistics'
-require './module/anomaly.rb'
-require './module/analyse.rb'
+require './module/model/anomaly.rb'
+require './module/model/analyse.rb'
 
 def parse(file, categories, logAnomalies = true, logSuccess = false)
     data = CSV.parse(File.read(file), headers: true)
@@ -35,7 +35,14 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
                     if stdev >= criteria.threshold
                         puts "⚠️,#{line}" unless !logAnomalies
                         line = "yes,#{line}"
-                        anomalies.append(Anomaly.new(criteria.abreviation, category.name, category.group))
+
+                        criteria_to_report = ""
+                        if criteria.abreviation.include?("Acro")
+                            criteria_to_report = "Acro"
+                        else
+                            criteria_to_report = criteria.abreviation
+                        end
+                        anomalies.append(Anomaly.new(criteria_to_report, category.name, category.group))
                     else
                         puts "✅,#{line}" unless !logSuccess
                         line = ",#{line}"

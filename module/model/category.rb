@@ -1,4 +1,4 @@
-require './module/criteria.rb'
+require './module/model/criteria.rb'
 
 Category = Struct.new(:name, :criterias, :group, :round_to_skip)
 
