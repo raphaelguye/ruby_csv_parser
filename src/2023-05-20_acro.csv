@@ -1,0 +1,139 @@
+﻿rt_id,Judge,tip,Category,Round,Heat,Stn,stanica,Acro 1,Acro 2,Acro 3,Acro 4,Acro 5,Acro 6,bm,turnir,Acro_7,Acro_8,fall
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,1,184,2,-10,-15,-15,-15,-10,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,1,263,2,-10,-15,-10,-10,-5,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,2,90,2,-5,-5,-35,-15,-5,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,2,15,2,-25,-10,-10,-25,-50,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,3,47,2,-10,-15,-35,-25,-5,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,3,86,2,-10,-10,-10,-15,-5,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,4,180,2,-10,-15,-10,-10,-15,-1,0,112,-1,-1,0
+1334,C,A,Rock'n'Roll-Main Class Free Style,First round,4,222,2,-5,-5,-15,-50,-10,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,1,263,3,-10,-25,-15,-35,-10,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,1,184,3,-25,-15,-25,-10,-25,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,2,90,3,-10,-10,-35,-35,-15,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,2,15,3,-25,-35,-10,-25,-50,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,3,47,3,-15,-25,-35,-25,-25,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,3,86,3,-15,-15,-25,-15,-25,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,4,180,3,-25,-25,-15,-35,-35,-1,0,112,-1,-1,0
+1334,D,A,Rock'n'Roll-Main Class Free Style,First round,4,222,3,-15,-35,-25,-75,-35,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,1,263,7,-5,-25,-10,-25,-10,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,1,184,7,-15,-15,-25,-10,-10,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,2,90,7,0,-5,-25,-10,-5,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,2,15,7,-25,-25,-15,-35,-35,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,3,47,7,-10,-10,-25,-25,0,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,3,86,7,-5,-25,-5,-10,-10,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,4,180,7,-25,-35,-5,-10,-10,-1,0,112,-1,-1,0
+1334,I,A,Rock'n'Roll-Main Class Free Style,First round,4,222,7,-5,-10,-10,-35,-5,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,1,224,1,-15,-10,-25,-50,-35,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,1,71,1,-35,-15,-10,-25,-35,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,2,181,1,-25,-35,-25,-35,-15,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,2,19,1,-10,-25,-15,-25,-15,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,3,117,1,-15,-25,-15,-15,-25,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,3,362,1,-25,-15,-15,-10,-35,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,4,517,1,-35,-25,-50,-15,-35,-1,0,112,-1,-1,0
+1335,B,A,Rock'n'Roll-Main Class Contact Style,First round,4,283,1,-15,-100,-25,-25,-75,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,1,71,4,-5,-50,-35,-15,-50,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,1,224,4,-5,-15,-50,-15,-15,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,2,181,4,-50,-50,-35,-50,-35,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,2,19,4,-5,-10,-15,-10,-15,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,3,117,4,-15,-5,-10,-10,-50,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,3,362,4,-15,-10,-10,-5,-35,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,4,517,4,-25,-15,-35,-15,-25,-1,0,112,-1,-1,0
+1335,E,A,Rock'n'Roll-Main Class Contact Style,First round,4,283,4,-15,-75,-35,-35,-50,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,1,71,5,-15,-35,-15,-15,-25,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,1,224,5,-15,-15,-25,-50,-35,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,2,181,5,-15,-50,-35,-25,-25,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,2,19,5,-10,-15,-25,-25,-15,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,3,117,5,-10,-15,-15,-25,-25,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,3,362,5,-15,-15,-25,-25,-35,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,4,517,5,-25,-35,-25,-25,-25,-1,0,112,-1,-1,0
+1335,F,A,Rock'n'Roll-Main Class Contact Style,First round,4,283,5,-10,-75,-35,-25,-35,-1,0,112,-1,-1,0
+1336,D,A,Rock'n'Roll-Main Class Start,Final,1,172,3,-10,-25,-25,-50,-35,-50,0,112,-1,-1,0
+1336,D,A,Rock'n'Roll-Main Class Start,Final,2,176,3,-25,-75,-50,-75,-75,-75,0,112,-1,-1,0
+1336,D,A,Rock'n'Roll-Main Class Start,Final,3,372,3,-25,-50,-75,-25,-15,-25,0,112,-1,-1,0
+1336,D,A,Rock'n'Roll-Main Class Start,Final,4,62,3,-15,-15,-25,-25,-25,-25,0,112,-1,-1,0
+1336,D,A,Rock'n'Roll-Main Class Start,Final,5,116,3,-15,-15,-35,-25,-75,-25,0,112,-1,-1,0
+1336,D,A,Rock'n'Roll-Main Class Start,Final,6,52,3,-25,-15,-25,-35,-10,-25,0,112,-1,-1,0
+1336,E,A,Rock'n'Roll-Main Class Start,Final,1,172,4,-10,-25,-10,-15,-15,-25,0,112,-1,-1,0
+1336,E,A,Rock'n'Roll-Main Class Start,Final,2,176,4,-50,-75,-50,-75,-50,-50,0,112,-1,-1,0
+1336,E,A,Rock'n'Roll-Main Class Start,Final,3,372,4,-15,-25,-75,-25,-15,-50,0,112,-1,-1,0
+1336,E,A,Rock'n'Roll-Main Class Start,Final,4,62,4,-5,-5,-10,-10,-10,-10,0,112,-1,-1,0
+1336,E,A,Rock'n'Roll-Main Class Start,Final,5,116,4,-15,-15,-35,-25,-75,-50,0,112,-1,-1,0
+1336,E,A,Rock'n'Roll-Main Class Start,Final,6,52,4,-15,-15,-5,-25,-10,-15,0,112,-1,-1,0
+1336,G,A,Rock'n'Roll-Main Class Start,Final,1,172,6,-10,-15,-10,-15,-10,-15,0,112,-1,-1,0
+1336,G,A,Rock'n'Roll-Main Class Start,Final,2,176,6,-50,-50,-50,-35,-35,-25,0,112,-1,-1,0
+1336,G,A,Rock'n'Roll-Main Class Start,Final,3,372,6,-15,-15,-75,-25,-25,-25,0,112,-1,-1,0
+1336,G,A,Rock'n'Roll-Main Class Start,Final,4,62,6,-10,-10,-15,-15,-25,-5,0,112,-1,-1,0
+1336,G,A,Rock'n'Roll-Main Class Start,Final,5,116,6,-5,-5,-15,-25,-75,-25,0,112,-1,-1,0
+1336,G,A,Rock'n'Roll-Main Class Start,Final,6,52,6,-5,-5,-5,-15,-10,-15,0,112,-1,-1,0
+1339,B,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,1,362,1,0,0,0,0,0,0,0,112,-1,-1,0
+1339,B,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,2,181,1,0,0,0,0,0,0,0,112,-1,-1,0
+1339,B,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,3,71,1,0,0,0,0,0,0,0,112,-1,-1,0
+1339,B,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,4,117,1,0,0,0,0,0,0,0,112,-1,-1,0
+1339,B,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,5,19,1,0,0,0,0,0,0,0,112,-1,-1,0
+1339,B,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,6,224,1,0,0,0,0,0,0,0,112,-1,-1,0
+1339,E,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,1,362,4,0,0,0,0,0,0,0,112,-1,-1,0
+1339,E,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,2,181,4,0,0,0,0,0,0,0,112,-1,-1,0
+1339,E,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,3,71,4,0,0,0,0,0,0,0,112,-1,-1,0
+1339,E,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,4,117,4,0,0,0,0,0,0,0,112,-1,-1,0
+1339,E,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,5,19,4,0,0,0,0,0,0,0,112,-1,-1,0
+1339,E,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,6,224,4,0,0,0,0,0,0,0,112,-1,-1,0
+1339,F,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,1,362,5,0,0,0,0,0,0,0,112,-1,-1,0
+1339,F,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,2,181,5,0,0,0,0,0,0,0,112,-1,-1,0
+1339,F,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,3,71,5,0,0,0,0,0,0,0,112,-1,-1,0
+1339,F,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,4,117,5,0,0,0,0,0,0,0,112,-1,-1,0
+1339,F,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,5,19,5,0,0,0,0,0,0,0,112,-1,-1,0
+1339,F,A,Rock'n'Roll-Main Class Contact Style,Final - Foot technique,6,224,5,0,0,0,0,0,0,0,112,-1,-1,0
+1340,C,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,1,90,2,0,0,0,0,0,0,0,112,-1,-1,0
+1340,C,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,2,263,2,0,0,0,0,0,0,0,112,-1,-1,0
+1340,C,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,3,47,2,0,0,0,0,0,0,0,112,-1,-1,0
+1340,C,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,4,86,2,0,0,0,0,0,0,0,112,-1,-1,0
+1340,C,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,5,180,2,0,0,0,0,0,0,0,112,-1,-1,0
+1340,C,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,6,184,2,0,0,0,0,0,0,0,112,-1,-1,0
+1340,D,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,1,90,3,0,0,0,0,0,0,0,112,-1,-1,0
+1340,D,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,2,263,3,0,0,0,0,0,0,0,112,-1,-1,0
+1340,D,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,3,47,3,0,0,0,0,0,0,0,112,-1,-1,0
+1340,D,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,4,86,3,0,0,0,0,0,0,0,112,-1,-1,0
+1340,D,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,5,180,3,0,0,0,0,0,0,0,112,-1,-1,0
+1340,D,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,6,184,3,0,0,0,0,0,0,0,112,-1,-1,0
+1340,I,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,1,90,7,0,0,0,0,0,0,0,112,-1,-1,0
+1340,I,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,2,263,7,0,0,0,0,0,0,0,112,-1,-1,0
+1340,I,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,3,47,7,0,0,0,0,0,0,0,112,-1,-1,0
+1340,I,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,4,86,7,0,0,0,0,0,0,0,112,-1,-1,0
+1340,I,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,5,180,7,0,0,0,0,0,0,0,112,-1,-1,0
+1340,I,A,Rock'n'Roll-Main Class Free Style,Final - Foot technique,6,184,7,0,0,0,0,0,0,0,112,-1,-1,0
+1343,B,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,1,19,1,-10,-35,-25,-15,-15,-15,0,112,-1,-1,0
+1343,B,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,2,362,1,-5,-15,-10,-15,-10,-35,0,112,-1,-1,0
+1343,B,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,3,224,1,-35,-50,-25,-35,-15,-25,0,112,-1,-1,0
+1343,B,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,4,117,1,-35,-10,-25,-10,-25,-15,0,112,-1,-1,0
+1343,B,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,5,181,1,-25,-35,-50,-15,-50,-35,0,112,-1,-1,0
+1343,B,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,6,71,1,-35,-35,-35,-25,-25,-15,0,112,-1,-1,0
+1343,E,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,1,19,4,-5,-50,-10,-10,-10,-25,0,112,-1,-1,0
+1343,E,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,2,362,4,0,-15,-10,-10,-10,-15,0,112,-1,-1,0
+1343,E,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,3,224,4,-15,-50,-15,-50,-35,-75,0,112,-1,-1,0
+1343,E,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,4,117,4,-15,-5,-50,-5,-50,-50,0,112,-1,-1,0
+1343,E,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,5,181,4,-50,-75,-75,-25,-75,-35,0,112,-1,-1,0
+1343,E,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,6,71,4,-35,-50,-75,-35,-35,-25,0,112,-1,-1,0
+1343,F,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,1,19,5,-10,-50,-15,-10,-35,-15,0,112,-1,-1,0
+1343,F,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,2,362,5,0,-15,-10,-25,-15,-25,0,112,-1,-1,0
+1343,F,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,3,224,5,-35,-50,-10,-35,-25,-35,0,112,-1,-1,0
+1343,F,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,4,117,5,-15,-10,-35,-10,-50,-15,0,112,-1,-1,0
+1343,F,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,5,181,5,-10,-25,-50,-25,-50,-15,0,112,-1,-1,0
+1343,F,A,Rock'n'Roll-Main Class Contact Style,Final - Acrobatic,6,71,5,-25,-25,-25,-15,-15,-15,0,112,-1,-1,0
+1344,C,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,1,90,2,-5,-5,-5,-35,-10,-10,0,112,-1,-1,0
+1344,C,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,2,86,2,-15,-25,-15,-15,-10,-10,0,112,-1,-1,0
+1344,C,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,3,180,2,-15,-15,-15,-50,-50,-15,0,112,-1,-1,0
+1344,C,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,4,47,2,-25,-15,-25,-15,-5,-5,0,112,-1,-1,0
+1344,C,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,5,263,2,-10,-10,-10,-5,-100,-5,0,112,-1,-1,0
+1344,C,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,6,184,2,-15,-10,-15,-25,-25,-25,0,112,-1,-1,0
+1344,D,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,1,90,3,-15,-10,-10,-35,-25,-5,0,112,-1,-1,0
+1344,D,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,2,86,3,-5,-25,-5,-5,-5,-25,0,112,-1,-1,0
+1344,D,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,3,180,3,-15,-5,-10,-5,-25,-10,0,112,-1,-1,0
+1344,D,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,4,47,3,-10,-15,-15,-35,-5,-5,0,112,-1,-1,0
+1344,D,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,5,263,3,-25,-10,-15,-15,-75,-15,0,112,-1,-1,0
+1344,D,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,6,184,3,-15,-25,0,-15,-35,-25,0,112,-1,-1,0
+1344,I,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,1,90,7,-10,0,-5,-25,-15,-5,0,112,-1,-1,0
+1344,I,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,2,86,7,-5,-25,-5,-10,-15,-10,0,112,-1,-1,0
+1344,I,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,3,180,7,-25,-25,-10,-10,-50,-10,0,112,-1,-1,0
+1344,I,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,4,47,7,-15,-5,-25,-15,-15,-5,0,112,-1,-1,0
+1344,I,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,5,263,7,-15,-15,-15,-5,-100,-5,0,112,-1,-1,0
+1344,I,A,Rock'n'Roll-Main Class Free Style,Final - Acrobatic,6,184,7,-15,-15,-5,-25,-35,-15,0,112,-1,-1,0
