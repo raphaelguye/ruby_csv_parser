@@ -1,13 +1,13 @@
 Criteria = Struct.new(:name, :abreviation, :threshold)
 
-criteria_df = 3.0
-criteria_co = 3.0
-criteria_fm = 2.6
+criteria_df = 2.0
+criteria_co = 2.0
+criteria_fm = 1.6
 criteria_fw = -1
-criteria_sm = 3.3
-criteria_bm = 4.0
-criteria_acro = 19.0
-criteria_fall = 10.0
+criteria_sm = 2.3
+criteria_bm = 3.0
+criteria_acro = 12.0
+criteria_fall = 3.0
 
 $criterias_formations = [
     Criteria.new("Dance Figure", "DF", criteria_df),
