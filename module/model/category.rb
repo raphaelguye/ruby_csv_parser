@@ -13,6 +13,9 @@ $categories_dance = [
     Category.new("Rock'n'Roll-Main Class Start", $criterias_couples_dance, "Adults", []),
     Category.new("Rock'n'Roll-Main Class Contact Style", $criterias_couples_dance, "Adults", []),
     Category.new("Rock'n'Roll-Main Class Free Style", $criterias_couples_dance, "Adults", []),
+	Category.new("Boogie-Woogie-Juniors", $criterias_couples_dance, "Juniors", []),
+	Category.new("Boogie-Woogie-Main Class", $criterias_couples_dance, "Adults", []),
+	Category.new("Boogie-Woogie-Main Class Start", $criterias_couples_dance, "Adults", []),
 ]
 
 $categories_acro = [
