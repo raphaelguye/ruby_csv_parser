@@ -4,10 +4,10 @@ require './module/model/analyse.rb'
 require './module/parser.rb'
 require './module/analyzer.rb'
 
-input_file_dance = "./src/2023-11-18_dance.csv"
-input_file_acro = "./src/2023-11-18_acro.csv"
-output_file_report = "./output/2023-11-18_report.csv"
-output_file_summary = "./output/2023-11-18_summary.csv"
+input_file_dance = "./src/2024-04-20_mcs_dance.csv"
+input_file_acro = "./src/2024-04-20_mcs_acro.csv"
+output_file_report = "./output/2024-04-20_mcs_report.csv"
+output_file_summary = "./output/2024-04-20_mcs_summary.csv"
 
 analyse_dance = parse(input_file_dance, $categories_dance, false, false)
 analyse_acro = parse(input_file_acro, $categories_acro, false, false)
