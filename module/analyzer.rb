@@ -1,6 +1,5 @@
 require './module/model/anomaly.rb'
 
-output = "todo"
 def analyzePerCriteria(anomalies,number_of_analyses)
     criteria_counter = Hash.new(0)
     anomalies.each do |anomaly|
