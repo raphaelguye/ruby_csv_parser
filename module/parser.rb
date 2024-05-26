@@ -7,7 +7,7 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
     data = CSV.parse(File.read(file), headers: true)
     output = ""
 
-    heats_number = 0
+    number_of_analyses = 0
     anomalies = []
 
     categories.each { |category| 
@@ -20,9 +20,9 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
 
             couples = all.uniq { |x| x["Stn"] }.each { |couple|
 
-                heats_number += 1
-
                 category.criterias.each { |criteria|
+
+                    number_of_analyses += 1
 
                     judges = all.filter { |x| x["Stn"] == couple["Stn"] }.uniq { |x| x["Judge"] }
                     samples = []
@@ -53,5 +53,5 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
             }
         }
     }
-    return Analyse.new(output, anomalies, heats_number)
+    return Analysis.new(output, anomalies, number_of_analyses)
 end

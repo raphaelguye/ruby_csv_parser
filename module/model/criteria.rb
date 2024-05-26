@@ -33,5 +33,4 @@ $criterias_couples_acro = [
     Criteria.new("Acro 4", "Acro 4", criteria_acro), 
     Criteria.new("Acro 5", "Acro 5", criteria_acro), 
     Criteria.new("Acro 6", "Acro 6", criteria_acro), 
-    Criteria.new("Big mistake", "bm", criteria_bm),
 ]
