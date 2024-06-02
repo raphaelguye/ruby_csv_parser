@@ -1,14 +1,14 @@
 Summary
 
 Number of anomalies per part,nb of anomalies, nb of analysis made,percentage of anomalies
-Dancing part,35,564,6%
-Acrobatic part,9,240,4%
+Dancing part,81,930,9%
+Acrobatic part,18,384,5%
 
 Number of anomalies per criteria,nb of anomalies, nb of analysis made,percentage of anomalies
-DF1,11,94,12%
-CDP1,10,94,11%
-FWM1,6,94,6%
-bm,4,94,4%
-Acro,9,240,4%
-FWL1,3,94,3%
-sm,1,94,1%
+DF1,23,155,15%
+FWM1,18,155,12%
+CDP1,17,155,11%
+FWL1,12,155,8%
+bm,8,155,5%
+Acro,18,384,5%
+sm,3,155,2%
