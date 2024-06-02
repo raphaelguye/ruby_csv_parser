@@ -1,5 +1,14 @@
 Summary
 
-Part,nb of anomalies, nb of heats,percentage of anomalie
-Dance,46,61,0.75
-Acro,9,24,0.38
+Number of anomalies per part,nb of anomalies, nb of analysis made,percentage of anomalies
+Dancing part,46,366,13%
+Acrobatic part,9,144,6%
+
+Number of anomalies per criteria,nb of anomalies, nb of analysis made,percentage of anomalies
+Dance Figure (DF),12,61,20%
+Footwork man (FM),12,61,20%
+Footwork woman (FW),9,61,15%
+Choregraphy (CDP),7,61,11%
+Big mistakes (BM),4,61,7%
+Acrobatic figure (Acro 1 to 6),9,144,6%
+Small mistakes (SM),2,61,3%

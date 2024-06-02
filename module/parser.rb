@@ -7,51 +7,56 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
     data = CSV.parse(File.read(file), headers: true)
     output = ""
 
-    heats_number = 0
+    number_of_analyses = 0
     anomalies = []
 
-    categories.each { |category| 
+    data.uniq { |x| x["turnir"] }.each { |competition|
 
-        rounds = data.uniq { |x| x["Round"] }.each { |roundRow|
-            round = roundRow["Round"]
+        competition_id = competition["turnir"]
+        categories.each { |category| 
 
-            all = data.filter { |x| x["Category"] == category.name && x["Round"] == round }
-            next if all.empty? || category.round_to_skip.include?(round)
+            rounds = data.filter { |x| x["turnir"] == competition_id }.uniq { |x| x["Round"] }.each { |roundRow|
+                round = roundRow["Round"]
 
-            couples = all.uniq { |x| x["Stn"] }.each { |couple|
+                all = data.filter { |x| x["turnir"] == competition_id && x["Category"] == category.name && x["Round"] == round }
+                next if all.empty? || category.round_to_skip.include?(round)
 
-                heats_number += 1
+                couples = all.uniq { |x| x["Stn"] }.each { |couple|
 
-                category.criterias.each { |criteria|
+                    category.criterias.each { |criteria|
 
-                    judges = all.filter { |x| x["Stn"] == couple["Stn"] }.uniq { |x| x["Judge"] }
-                    samples = []
-                    judges.each { |judge| 
-                        samples.append(judge[criteria.abreviation].to_f)
-                    }
-                    stdev = samples.standard_deviation.round(2)
+                        number_of_analyses += 1
 
-                    line = "#{category.name},#{round},#{couple["Heat"]},#{couple["Stn"]},#{criteria.abreviation},#{stdev},#{criteria.threshold},\"#{samples}\""
-                    if stdev >= criteria.threshold
-                        puts "⚠️,#{line}" unless !logAnomalies
-                        line = "yes,#{line}"
+                        judges = all.filter { |x| x["Stn"] == couple["Stn"] }.uniq { |x| x["Judge"] }
+                        samples = []
+                        judges.each { |judge| 
+                            samples.append(judge[criteria.abreviation].to_f)
+                        }
+                        stdev = samples.standard_deviation.round(2)
 
-                        criteria_to_report = ""
-                        if criteria.abreviation.include?("Acro")
-                            criteria_to_report = "Acro"
+                        line = "#{category.name},#{round},#{couple["Heat"]},#{couple["Stn"]},#{criteria.abreviation},#{stdev},#{criteria.threshold},\"#{samples}\""
+                        if stdev >= criteria.threshold
+                            puts "⚠️,#{line}" unless !logAnomalies
+                            line = "yes,#{line}"
+
+                            criteria_to_report = ""
+                            if criteria.abreviation.include?("Acro")
+                                criteria_to_report = "Acro"
+                            else
+                                criteria_to_report = criteria.abreviation
+                            end
+                            anomalies.append(Anomaly.new(criteria_to_report, category.name, category.group))
                         else
-                            criteria_to_report = criteria.abreviation
+                            puts "✅,#{line}" unless !logSuccess
+                            line = ",#{line}"
                         end
-                        anomalies.append(Anomaly.new(criteria_to_report, category.name, category.group))
-                    else
-                        puts "✅,#{line}" unless !logSuccess
-                        line = ",#{line}"
-                    end
-                    output += line
-                    output += "\n"
+                        output += line
+                        output += "\n"
+                    }
                 }
             }
+
         }
     }
-    return Analyse.new(output, anomalies, heats_number)
+    return Analysis.new(output, anomalies, number_of_analyses)
 end
