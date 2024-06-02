@@ -3,6 +3,7 @@ require './module/model/anomaly.rb'
 require './module/model/analyse.rb'
 require './module/parser.rb'
 require './module/analyzer.rb'
+require './module/utils/translator.rb'
 
 input_file_dance = "./src/2024-overall_dance.csv"
 input_file_acro = "./src/2024-overall_acro.csv"
@@ -41,7 +42,8 @@ File.open(output_file_summary, "w") { |f|
     f.write("\n")
     f.write("Number of anomalies per criteria,nb of anomalies, nb of analysis made,percentage of anomalies\n")
     sorted_analysis_per_criteria.each .each do |analysisPerCriteria|
-        f.write("#{analysisPerCriteria.criteria},#{analysisPerCriteria.counter},#{analysisPerCriteria.number_of_analyses},#{analysisPerCriteria.percentage}%\n")
+        translated_criteria = Translator.translate(analysisPerCriteria.criteria)
+        f.write("#{translated_criteria},#{analysisPerCriteria.counter},#{analysisPerCriteria.number_of_analyses},#{analysisPerCriteria.percentage}%\n")
     end
 }
 
