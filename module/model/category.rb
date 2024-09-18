@@ -1,6 +1,11 @@
 require './module/model/criteria.rb'
 
-Category = Struct.new(:name, :criterias, :group, :round_to_skip)
+Category = Struct.new(:name, :criterias, :group, :round_to_skip) do
+    def self.get_group(name)
+        category = $categories_dance.find { |category| category.name == name }
+        category ? category.group : "n/a"
+    end
+end
 
 $categories_dance = [
     Category.new("Rock'n'Roll-Beginners", $criterias_couples_dance, "Juniors", []),

@@ -32,6 +32,10 @@ acroAnalysisPerCriteria = analyzePerCriteria(analysis_acro.anomalies,analysis_ac
 combinedAnalysisPerCriteria = danceAnalysisPerCriteria + acroAnalysisPerCriteria
 sorted_analysis_per_criteria = combinedAnalysisPerCriteria.sort_by { |analysis| -analysis.percentage }
 
+allAnomalies = analysis_acro.anomalies + analysis_dance.anomalies
+analysisPerGroup = analyzePerGroup(allAnomalies, content_csv)
+sorted_analysis_per_group = analysisPerGroup.sort_by { |analysis| -analysis.percentage }
+
 File.open(output_file_summary, "w") { |f| 
     f.write("Summary")
     f.write("\n")
@@ -44,6 +48,12 @@ File.open(output_file_summary, "w") { |f|
     sorted_analysis_per_criteria.each .each do |analysisPerCriteria|
         translated_criteria = Translator.translate(analysisPerCriteria.criteria)
         f.write("#{translated_criteria},#{analysisPerCriteria.counter},#{analysisPerCriteria.number_of_analyses},#{analysisPerCriteria.percentage}%\n")
+    end
+    f.write("\n")
+    f.write("Number of anomalies per group,nb of anomalies, nb of analysis made,percentage of anomalies\n")
+    sorted_analysis_per_group.each .each do |analysisPerGroup|
+        translated_criteria = Translator.translate(analysisPerGroup.criteria)
+        f.write("#{translated_criteria},#{analysisPerGroup.counter},#{analysisPerGroup.number_of_analyses},#{analysisPerGroup.percentage}%\n")
     end
 }
 
