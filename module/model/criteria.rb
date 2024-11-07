@@ -9,19 +9,19 @@ criteria_bm = 3.0
 criteria_acro = 12.0
 
 $criterias_formations = [
-    Criteria.new("Dance Figure", "DF1", criteria_df),
-    Criteria.new("Choreography", "CDP1", criteria_cdp),
-    Criteria.new("?", "FWM1", criteria_fm),
-    Criteria.new("?", "FWL1", criteria_fw),
+    Criteria.new("Dance Figure", "DF", criteria_df),
+    Criteria.new("Choreography", "CO", criteria_cdp),
+    Criteria.new("?", "FM", criteria_fm),
+    Criteria.new("?", "FW", criteria_fw),
     Criteria.new("Small mistakes", "sm", criteria_sm),
     Criteria.new("Big mistakes", "bm", criteria_bm),
 ]
 
 $criterias_couples_dance = [
-    Criteria.new("Dance Figure", "DF1", criteria_df), 
-    Criteria.new("Choreography", "CDP1", criteria_cdp), 
-    Criteria.new("Foot Man", "FWM1", criteria_fm), 
-    Criteria.new("Foot Man", "FWL1", criteria_fw), 
+    Criteria.new("Dance Figure", "DF", criteria_df), 
+    Criteria.new("Choreography", "CO", criteria_cdp), 
+    Criteria.new("Foot Man", "FM", criteria_fm), 
+    Criteria.new("Foot Woman", "FW", criteria_fw), 
     Criteria.new("Small mistakes", "sm", criteria_sm),
     Criteria.new("Big mistakes", "bm", criteria_bm),
 ]
