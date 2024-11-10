@@ -33,8 +33,9 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
                             samples.append(judge[criteria.abreviation].to_f)
                         }
                         stdev = samples.standard_deviation.round(2)
+                        ratio = stdev/criteria.threshold
 
-                        line = "#{category.name},#{round},#{couple["Heat"]},#{couple["Stn"]},#{criteria.abreviation},#{stdev},#{criteria.threshold},\"#{samples}\""
+                        line = "#{category.name},#{round},#{couple["Heat"]},#{couple["Stn"]},#{criteria.abreviation},#{stdev},#{criteria.threshold},#{ratio},\"#{samples}\""
                         if stdev >= criteria.threshold
                             puts "⚠️,#{line}" unless !logAnomalies
                             line = "yes,#{line}"
@@ -45,7 +46,8 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
                             else
                                 criteria_to_report = criteria.abreviation
                             end
-                            anomalies.append(Anomaly.new(criteria_to_report, category.name, category.group))
+                            raw_entry = "#{category.name},#{criteria.abreviation},#{round},Heat #{couple["Heat"]} Stn. #{couple["Stn"]},[#{samples.join(' ')}]\n"
+                            anomalies.append(Anomaly.new(criteria_to_report, category.name, category.group, ratio, raw_entry))
                         else
                             puts "✅,#{line}" unless !logSuccess
                             line = ",#{line}"

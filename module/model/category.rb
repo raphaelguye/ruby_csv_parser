@@ -11,10 +11,10 @@ $categories_dance = [
     Category.new("Rock'n'Roll-Beginners", $criterias_couples_dance, "Juniors", []),
     Category.new("Rock'n'Roll-Juveniles", $criterias_couples_dance, "Juniors", []),
     Category.new("Rock'n'Roll-Juniors", $criterias_couples_dance, "Juniors", []),
-    Category.new("Rock'n'Roll-Small Formations Juniors", $criterias_formations, "Formations", []),
-    Category.new("Rock'n'Roll-Small Formations", $criterias_formations, "Formations", []),
-    Category.new("Rock'n'Roll-Girl Formations", $criterias_formations, "Formations", []),
-    Category.new("Rock'n'Roll-Ladies Formations", $criterias_formations, "Formations", []),
+    Category.new("Rock'n'Roll-Small Formation Juniors", $criterias_formations, "Formations", []), # former Rock'n'Roll-Small Formations Juniors
+    Category.new("Rock'n'Roll-Small Formation", $criterias_formations, "Formations", []), # former Rock'n'Roll-Small Formations
+    Category.new("Rock'n'Roll-Formation Juniors", $criterias_formations, "Formations", []), # former Rock'n'Roll-Girl Formations
+    Category.new("Rock'n'Roll-Formation", $criterias_formations, "Formations", []), # former Rock'n'Roll-Ladies Formations
     Category.new("Rock'n'Roll-Main Class Start", $criterias_couples_dance, "Adults", []),
     Category.new("Rock'n'Roll-Main Class Contact Style", $criterias_couples_dance, "Adults", []),
     Category.new("Rock'n'Roll-Main Class Free Style", $criterias_couples_dance, "Adults", []),
