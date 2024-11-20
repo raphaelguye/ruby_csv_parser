@@ -18,7 +18,11 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
             rounds = data.filter { |x| x["turnir"] == competition_id }.uniq { |x| x["Round"] }.each { |roundRow|
                 round = roundRow["Round"]
 
-                all = data.filter { |x| x["turnir"] == competition_id && x["Category"] == category.name && x["Round"] == round }
+                all = data.filter do |x|
+                    x["turnir"] == competition_id &&
+                    (x["Category"] == category.name || category.alias.include?(x["Category"])) &&
+                    x["Round"] == round
+                end
                 next if all.empty? || category.round_to_skip.include?(round)
 
                 couples = all.uniq { |x| x["Stn"] }.each { |couple|
@@ -35,7 +39,7 @@ def parse(file, categories, logAnomalies = true, logSuccess = false)
                         stdev = samples.standard_deviation.round(2)
                         ratio = stdev/criteria.threshold
 
-                        line = "#{category.name},#{round},#{couple["Heat"]},#{couple["Stn"]},#{criteria.abreviation},#{stdev},#{criteria.threshold},#{ratio},\"#{samples}\""
+                        line = "#{couple["turnir"]},#{category.name},#{round},#{couple["Heat"]},#{couple["Stn"]},#{criteria.abreviation},#{stdev},#{criteria.threshold},#{ratio},\"#{samples}\""
                         if stdev >= criteria.threshold
                             puts "⚠️,#{line}" unless !logAnomalies
                             line = "yes,#{line}"

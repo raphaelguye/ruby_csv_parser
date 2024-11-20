@@ -2,17 +2,17 @@ Criteria = Struct.new(:name, :abreviation, :threshold)
 
 criteria_df = 2.0
 criteria_cdp = 2.0
-criteria_fm = 12.0
+criteria_fm = 2.0
 criteria_fw = 12.0
 criteria_sm = 2.3
-criteria_bm = 3.0
+criteria_bm = 8.0
 criteria_acro = 12.0
 
 $criterias_formations = [
     Criteria.new("Dance Figure", "DF", criteria_df),
     Criteria.new("Choreography", "CO", criteria_cdp),
-    Criteria.new("?", "FM", criteria_fm),
-    Criteria.new("?", "FW", criteria_fw),
+    Criteria.new("FM?", "FM", criteria_fm),
+    Criteria.new("FW?", "FW", criteria_fw),
     Criteria.new("Small mistakes", "sm", criteria_sm),
     Criteria.new("Big mistakes", "bm", criteria_bm),
 ]

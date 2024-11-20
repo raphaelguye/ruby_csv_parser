@@ -1,5 +1,9 @@
 class Translator
     TRANSLATIONS = {
+      'DF' => 'Dance Figure (DF)',
+      'CO' => 'Choregraphy (CO)',
+      'FM' => 'Footwork man (FM)',
+      'FW' => 'Footwork woman (FW)',
       'DF1' => 'Dance Figure (DF)',
       'CDP1' => 'Choregraphy (CDP)',
       'FWM1' => 'Footwork man (FM)',

@@ -22,15 +22,11 @@ def analyzePerGroup(anomalies,content_csv)
     nb_entries_per_group["Adults"] = 0
     nb_entries_per_group["Formations"] = 0
 
-    #TODO: implement nb_entries_per_group
-
     data = CSV.parse(content_csv, headers: false)
     data.each do |line|
-        group = Category.get_group(line[1])
+        group = Category.get_group(line[2])
         nb_entries_per_group[group] += 1
     end
-
-    puts nb_entries_per_group
 
     group_counter = Hash.new(0)
     group_counter["Juniors"] = 0

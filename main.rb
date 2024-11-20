@@ -5,10 +5,10 @@ require './module/parser.rb'
 require './module/analyzer.rb'
 require './module/utils/translator.rb'
 
-input_file_dance = "./src/2024-11-02_dance.csv"
-input_file_acro = "./src/2024-11-02_acro.csv"
-output_file_report = "./output/2024-11-02_report.csv"
-output_file_summary = "./output/2024-11-02_summary.csv"
+input_file_dance = "./src/2024-05-25_dance.csv"
+input_file_acro = "./src/2024-05-25_acro.csv"
+output_file_report = "./output/2024-05-25_report.csv"
+output_file_summary = "./output/2024-05-25_summary.csv"
 
 analysis_dance = parse(input_file_dance, $categories_dance, false, false)
 analysis_acro = parse(input_file_acro, $categories_acro, false, false)
@@ -16,7 +16,7 @@ analysis_acro = parse(input_file_acro, $categories_acro, false, false)
 content_csv = analysis_dance.csv_content + analysis_acro.csv_content
 
 File.open(output_file_report, "w") { |f| 
-    f.write("anomaly,category name,round,heat,couple,criteria,stdev,threshold,ratio,raw data\n")
+    f.write("anomaly,competition,category name,round,heat,couple,criteria,stdev,threshold,ratio,raw data\n")
     f.write(content_csv)
 }
 
