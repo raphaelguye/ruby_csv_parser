@@ -1,6 +1,6 @@
 Criteria = Struct.new(:name, :abreviation, :threshold)
 
-criteria_df = 2.0
+criteria_df = 2.3
 criteria_cdp = 2.0
 criteria_fm = 2.0
 criteria_fw = 12.0
