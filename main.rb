@@ -8,12 +8,15 @@ require './module/utils/translator.rb'
 INPUT_FOLDER  = "./src/2024"
 OUTPUT_FOLDER = "./output/2024"
 
+# Collect acro and dance files
 acro_files  = Dir.glob(File.join(INPUT_FOLDER, "*_acro.csv"))
 dance_files = Dir.glob(File.join(INPUT_FOLDER, "*_dance.csv"))
 
+# Extract prefixes (i.e., remove '_acro.csv' or '_dance.csv')
 acro_prefixes  = acro_files.map  { |f| File.basename(f, '_acro.csv') }
 dance_prefixes = dance_files.map { |f| File.basename(f, '_dance.csv') }
 
+# Find missing matches
 acro_only_prefixes  = acro_prefixes  - dance_prefixes  # no matching dance
 dance_only_prefixes = dance_prefixes - acro_prefixes   # no matching acro
 
@@ -25,16 +28,20 @@ dance_only_prefixes.each do |prefix|
 end
 puts ""
 
+# Loop over valid pairs of _acro and _dance files found
 valid_prefixes = acro_prefixes & dance_prefixes
 valid_prefixes.each do |base_prefix|
   acro_file  = File.join(INPUT_FOLDER, "#{base_prefix}_acro.csv")
   dance_file = File.join(INPUT_FOLDER, "#{base_prefix}_dance.csv")
 
+  # Parse
   analysis_acro  = parse(acro_file,  $categories_acro,  false, false)
   analysis_dance = parse(dance_file, $categories_dance, false, false)
 
+  # Combine CSV
   content_csv = analysis_dance.csv_content + analysis_acro.csv_content
 
+  # Write report
   output_file_report  = File.join(OUTPUT_FOLDER, "#{base_prefix}_report.csv")
   File.open(output_file_report, "w") do |f|
     f.write("anomaly,competition,category name,round,heat,couple,criteria,stdev,threshold,ratio,raw data\n")
@@ -42,6 +49,7 @@ valid_prefixes.each do |base_prefix|
   end
   puts "✅ Created: #{output_file_report}"
 
+  # Calculate anomalies and percentages
   percentage_anomalies_acro  = (100 * (analysis_acro.anomalies.count  / analysis_acro.number_of_analyses.to_f).round(2)).to_i
   percentage_anomalies_dance = (100 * (analysis_dance.anomalies.count / analysis_dance.number_of_analyses.to_f).round(2)).to_i
 
@@ -60,8 +68,13 @@ valid_prefixes.each do |base_prefix|
   analysisPerGroup = analyzePerGroup(all_anomalies, content_csv)
   sorted_analysis_per_group = analysisPerGroup.sort_by { |analysis| -analysis.percentage }
 
-  sorted_anomalies = all_anomalies.sort_by { |anomaly| -anomaly.stdev_ratio }
-  top_anomalies    = sorted_anomalies.first(5)
+  # Only compute Top 5 anomalies if *not* "overall"
+  top_anomalies = []
+  compute_top_anomalies = !base_prefix.downcase.include?("overall")
+  if compute_top_anomalies
+    sorted_anomalies = all_anomalies.sort_by { |anomaly| -anomaly.stdev_ratio }
+    top_anomalies    = sorted_anomalies.first(5)
+  end
 
   output_file_summary = File.join(OUTPUT_FOLDER, "#{base_prefix}_summary.csv")
   File.open(output_file_summary, "w") do |f|
@@ -85,11 +98,14 @@ valid_prefixes.each do |base_prefix|
     end
     f.write("\n")
 
-    f.write("Top 5 anomalies\n")
-    top_anomalies.each do |anomaly|
-      f.write(anomaly.raw_entry)
+    # Only write out the "Top 5 anomalies" section if it's not "overall"
+    unless base_prefix.downcase.include?("overall")
+      f.write("Top 5 anomalies\n")
+      top_anomalies.each do |anomaly|
+        f.write(anomaly.raw_entry)
+      end
+      f.write("\n")
     end
-    f.write("\n")
   end
 
   puts "✅ Created: #{output_file_summary}"
