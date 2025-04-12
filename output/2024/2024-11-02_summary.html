@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis Summary - 2024-11-02</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h1>Analysis Summary - 2024-11-02</h1>
+
+<div class="section">
+  <h2>Overview</h2>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <h3>Dancing Part Anomalies</h3>
+      <div class="value" id="danceAnomalies">33</div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" data-percentage="5"></div>
+      </div>
+      <p>732 analyses performed</p>
+    </div>
+    
+    <div class="summary-card">
+      <h3>Acrobatic Part Anomalies</h3>
+      <div class="value" id="acroAnomalies">9</div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" data-percentage="3"></div>
+      </div>
+      <p>282 analyses performed</p>
+    </div>
+  </div>
+  
+  <div class="chart-container">
+    <canvas id="anomaliesPerPartChart"></canvas>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Anomalies per Criteria</h2>
+  <div class="chart-container">
+    <canvas id="anomaliesPerCriteriaChart" data-criteria='[{"criteria":"Choregraphy (CO)","percentage":7},{"criteria":"Dance Figure (DF)","percentage":6},{"criteria":"Footwork woman (FW)","percentage":6},{"criteria":"Small mistakes (SM)","percentage":4},{"criteria":"Footwork man (FM)","percentage":3},{"criteria":"Acrobatic figure (Acro 1 to 6)","percentage":3},{"criteria":"Big mistakes (BM)","percentage":2}]'></canvas>
+  </div>
+  <table>
+  <thead>
+    <tr>
+      <th>Criteria</th>
+      <th>Number of Anomalies</th>
+      <th>Analyses Made</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td>Choregraphy (CO)</td>
+  <td>8</td>
+  <td>122</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="7"></div>
+    </div>
+    7%
+  </td>
+</tr>
+<tr>
+  <td>Dance Figure (DF)</td>
+  <td>7</td>
+  <td>122</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="6"></div>
+    </div>
+    6%
+  </td>
+</tr>
+<tr>
+  <td>Footwork woman (FW)</td>
+  <td>7</td>
+  <td>122</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="6"></div>
+    </div>
+    6%
+  </td>
+</tr>
+<tr>
+  <td>Small mistakes (SM)</td>
+  <td>5</td>
+  <td>122</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="4"></div>
+    </div>
+    4%
+  </td>
+</tr>
+<tr>
+  <td>Footwork man (FM)</td>
+  <td>4</td>
+  <td>122</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="3"></div>
+    </div>
+    3%
+  </td>
+</tr>
+<tr>
+  <td>Acrobatic figure (Acro 1 to 6)</td>
+  <td>9</td>
+  <td>282</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="3"></div>
+    </div>
+    3%
+  </td>
+</tr>
+<tr>
+  <td>Big mistakes (BM)</td>
+  <td>2</td>
+  <td>122</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="2"></div>
+    </div>
+    2%
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+</div>
+
+<div class="section">
+  <h2>Anomalies per Group</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Number of Anomalies</th>
+      <th>Analyses Made</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+  <td>Formations</td>
+  <td>8</td>
+  <td>126</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="6"></div>
+    </div>
+    6%
+  </td>
+</tr>
+<tr>
+  <td>Juniors</td>
+  <td>12</td>
+  <td>258</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="5"></div>
+    </div>
+    5%
+  </td>
+</tr>
+<tr>
+  <td>Adults</td>
+  <td>22</td>
+  <td>630</td>
+  <td>
+    <div class="progress-bar">
+      <div class="progress-bar-fill" data-percentage="3"></div>
+    </div>
+    3%
+  </td>
+</tr>
+
+  </tbody>
+</table>
+
+</div>
+
+<div class="section">
+  <h2>Top 5 Anomalies</h2>
+  <ul class="anomaly-list">
+    <li class="anomaly-item high">
+  Rock'n'Roll-Main Class Contact Style,FW,First round,Heat 5 Stn. 181,[-35.0 -15.0 -100.0]<br>
+</li>
+<li class="anomaly-item low">
+  Rock'n'Roll-Main Class Contact Style,DF,First round,Heat 5 Stn. 181,[2.5 11.25 1.25]<br>
+</li>
+<li class="anomaly-item low">
+  Rock'n'Roll-Main Class Contact Style,FM,First round,Heat 5 Stn. 181,[7.5 8.5 0.0]<br>
+</li>
+<li class="anomaly-item low">
+  Rock'n'Roll-Main Class Contact Style,Acro 1,First round,Heat 2 Stn. 172,[-35.0 -25.0 -75.0]<br>
+</li>
+<li class="anomaly-item low">
+  Rock'n'Roll-Main Class Contact Style,Acro 4,Final - Acrobatic,Heat 6 Stn. 224,[-25.0 -35.0 -75.0]<br>
+</li>
+
+  </ul>
+</div>
+
+  <script src="assets/scripts.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@ require './module/model/analyse.rb'
 require './module/parser.rb'
 require './module/analyzer.rb'
 require './module/utils/translator.rb'
+require 'json'
 
 module CsvParser
   INPUT_FOLDER  = "./src/2024"
@@ -61,6 +62,7 @@ module CsvParser
       content_csv = analysis_dance.csv_content + analysis_acro.csv_content
       generate_report_csv(base_prefix, content_csv)
       generate_summary_csv(base_prefix, analysis_acro, analysis_dance, content_csv)
+      generate_summary_html(base_prefix, analysis_acro, analysis_dance, content_csv)
     end
 
     def generate_report_csv(base_prefix, content_csv)
@@ -82,7 +84,205 @@ module CsvParser
         write_top_anomalies(f, base_prefix, analysis_acro, analysis_dance)
       end
       puts "✅ Created: #{output_file}"
+    end
+
+    def generate_summary_html(base_prefix, analysis_acro, analysis_dance, content_csv)
+      output_file = File.join(OUTPUT_FOLDER, "#{base_prefix}_summary.html")
+      File.open(output_file, "w") do |f|
+        f.write(generate_html_header(base_prefix))
+        f.write(generate_html_body(base_prefix, analysis_acro, analysis_dance, content_csv))
+        f.write(generate_html_footer)
+      end
+      puts "✅ Created: #{output_file}"
       puts ""
+    end
+
+    def generate_html_header(base_prefix)
+      <<~HTML
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Analysis Summary - #{base_prefix}</title>
+          <link rel="stylesheet" href="assets/styles.css">
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </head>
+        <body>
+      HTML
+    end
+
+    def generate_html_body(base_prefix, analysis_acro, analysis_dance, content_csv)
+      <<~HTML
+        <h1>Analysis Summary - #{base_prefix}</h1>
+        
+        <div class="section">
+          <h2>Overview</h2>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <h3>Dancing Part Anomalies</h3>
+              <div class="value" id="danceAnomalies">#{analysis_dance.anomalies.count}</div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-percentage="#{calculate_percentage(analysis_dance)}"></div>
+              </div>
+              <p>#{analysis_dance.number_of_analyses} analyses performed</p>
+            </div>
+            
+            <div class="summary-card">
+              <h3>Acrobatic Part Anomalies</h3>
+              <div class="value" id="acroAnomalies">#{analysis_acro.anomalies.count}</div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-percentage="#{calculate_percentage(analysis_acro)}"></div>
+              </div>
+              <p>#{analysis_acro.number_of_analyses} analyses performed</p>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <canvas id="anomaliesPerPartChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Anomalies per Criteria</h2>
+          <div class="chart-container">
+            <canvas id="anomaliesPerCriteriaChart" data-criteria='#{generate_criteria_data(analysis_acro, analysis_dance).to_json}'></canvas>
+          </div>
+          #{generate_criteria_table(analysis_acro, analysis_dance)}
+        </div>
+
+        <div class="section">
+          <h2>Anomalies per Group</h2>
+          #{generate_group_table(content_csv, analysis_acro, analysis_dance)}
+        </div>
+
+        #{generate_top_anomalies_section(base_prefix, analysis_acro, analysis_dance)}
+      HTML
+    end
+
+    def generate_criteria_data(analysis_acro, analysis_dance)
+      combined_analysis = Analyzer.analyze_per_criteria(
+        analysis_dance.anomalies,
+        analysis_dance.number_of_analyses / $criterias_couples_dance.count
+      ) + Analyzer.analyze_per_criteria(
+        analysis_acro.anomalies,
+        analysis_acro.number_of_analyses
+      )
+      
+      combined_analysis.sort_by { |analysis| -analysis.percentage }.map do |analysis|
+        {
+          criteria: Translator.translate(analysis.criteria),
+          percentage: analysis.percentage
+        }
+      end
+    end
+
+    def generate_criteria_table(analysis_acro, analysis_dance)
+      combined_analysis = Analyzer.analyze_per_criteria(
+        analysis_dance.anomalies,
+        analysis_dance.number_of_analyses / $criterias_couples_dance.count
+      ) + Analyzer.analyze_per_criteria(
+        analysis_acro.anomalies,
+        analysis_acro.number_of_analyses
+      )
+      
+      <<~HTML
+        <table>
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Number of Anomalies</th>
+              <th>Analyses Made</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            #{combined_analysis.sort_by { |analysis| -analysis.percentage }.map do |analysis|
+              translated_criteria = Translator.translate(analysis.criteria)
+              <<~ROW
+                <tr>
+                  <td>#{translated_criteria}</td>
+                  <td>#{analysis.counter}</td>
+                  <td>#{analysis.number_of_analyses}</td>
+                  <td>
+                    <div class="progress-bar">
+                      <div class="progress-bar-fill" data-percentage="#{analysis.percentage}"></div>
+                    </div>
+                    #{analysis.percentage}%
+                  </td>
+                </tr>
+              ROW
+            end.join}
+          </tbody>
+        </table>
+      HTML
+    end
+
+    def generate_group_table(content_csv, analysis_acro, analysis_dance)
+      all_anomalies = analysis_acro.anomalies + analysis_dance.anomalies
+      analysis_per_group = Analyzer.analyze_per_group(all_anomalies, content_csv)
+      
+      <<~HTML
+        <table>
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Number of Anomalies</th>
+              <th>Analyses Made</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            #{analysis_per_group.sort_by { |analysis| -analysis.percentage }.map do |analysis|
+              translated_criteria = Translator.translate(analysis.criteria)
+              <<~ROW
+                <tr>
+                  <td>#{translated_criteria}</td>
+                  <td>#{analysis.counter}</td>
+                  <td>#{analysis.number_of_analyses}</td>
+                  <td>
+                    <div class="progress-bar">
+                      <div class="progress-bar-fill" data-percentage="#{analysis.percentage}"></div>
+                    </div>
+                    #{analysis.percentage}%
+                  </td>
+                </tr>
+              ROW
+            end.join}
+          </tbody>
+        </table>
+      HTML
+    end
+
+    def generate_top_anomalies_section(base_prefix, analysis_acro, analysis_dance)
+      return "" if base_prefix.downcase.include?("overall")
+      
+      all_anomalies = analysis_acro.anomalies + analysis_dance.anomalies
+      top_anomalies = all_anomalies.sort_by { |anomaly| -anomaly.stdev_ratio }.first(5)
+      
+      <<~HTML
+        <div class="section">
+          <h2>Top 5 Anomalies</h2>
+          <ul class="anomaly-list">
+            #{top_anomalies.map do |anomaly|
+              severity_class = anomaly.stdev_ratio > 2 ? "high" : "low"
+              <<~ANOMALY
+                <li class="anomaly-item #{severity_class}">
+                  #{anomaly.raw_entry.gsub("\n", "<br>")}
+                </li>
+              ANOMALY
+            end.join}
+          </ul>
+        </div>
+      HTML
+    end
+
+    def generate_html_footer
+      <<~HTML
+          <script src="assets/scripts.js"></script>
+        </body>
+        </html>
+      HTML
     end
 
     def write_summary_header(f)
