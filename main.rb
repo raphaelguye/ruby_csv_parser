@@ -51,8 +51,8 @@ module CsvParser
       acro_file  = File.join(INPUT_FOLDER, "#{base_prefix}_acro.csv")
       dance_file = File.join(INPUT_FOLDER, "#{base_prefix}_dance.csv")
 
-      analysis_acro  = parse(acro_file,  $categories_acro,  false, false)
-      analysis_dance = parse(dance_file, $categories_dance, false, false)
+      analysis_acro  = Parser.parse(acro_file,  $categories_acro,  false, false)
+      analysis_dance = Parser.parse(dance_file, $categories_dance, false, false)
 
       generate_reports(base_prefix, analysis_acro, analysis_dance)
     end
