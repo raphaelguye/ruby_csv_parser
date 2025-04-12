@@ -2,7 +2,7 @@ require './module/model/criteria.rb'
 
 class Category < Struct.new(:name, :criterias, :group, :alias, :round_to_skip)
     def self.get_group(name)
-        category = $categories_dance.find { |category| category.name == name }
+        category = Categories::DANCE.find { |category| category.name == name }
         category ? category.group : "n/a"
     end
 end
@@ -27,7 +27,3 @@ module Categories
         Category.new("Rock'n'Roll-Main Class Free Style", $criterias_couples_acro, "Adults", [], ["Final - Foot technique"])
     ].freeze
 end
-
-# For backward compatibility
-$categories_dance = Categories::DANCE
-$categories_acro = Categories::ACRO
