@@ -7,7 +7,7 @@ require_relative '../../module/model/criteria'
 require_relative '../../module/model/anomaly'
 require_relative '../../module/model/analyse'
 
-RSpec.describe 'parse' do
+RSpec.describe Parser do
   let(:temp_csv) do
     Tempfile.new(['test', '.csv'])
   end
@@ -43,7 +43,7 @@ RSpec.describe 'parse' do
   end
 
   it 'processes the CSV file and returns an Analysis object' do
-    result = parse(temp_csv.path, [category], true, false)
+    result = Parser.parse(temp_csv.path, [category], true, false)
     
     expect(result).to be_a(Analysis)
     expect(result.csv_content).to be_a(String)
@@ -52,7 +52,7 @@ RSpec.describe 'parse' do
   end
 
   it 'detects anomalies when standard deviation exceeds threshold' do
-    result = parse(temp_csv.path, [category], true, false)
+    result = Parser.parse(temp_csv.path, [category], true, false)
     
     # Should find anomalies for the second couple (station 2) due to high CO standard deviation
     co_anomalies = result.anomalies.select { |a| a.criteria == "CO" }
@@ -65,7 +65,7 @@ RSpec.describe 'parse' do
   end
 
   it 'does not detect anomalies when standard deviation is below threshold' do
-    result = parse(temp_csv.path, [category], true, false)
+    result = Parser.parse(temp_csv.path, [category], true, false)
     
     # Should not find anomalies for DF in any couple
     df_anomalies = result.anomalies.select { |a| a.criteria == "DF" }
@@ -74,13 +74,13 @@ RSpec.describe 'parse' do
 
   it 'respects the logAnomalies flag' do
     # Test with logAnomalies = false
-    result = parse(temp_csv.path, [category], false, false)
+    result = Parser.parse(temp_csv.path, [category], false, false)
     expect(result.anomalies.size).to eq(1) # Still detects anomalies, just doesn't log them
   end
 
   it 'respects the logSuccess flag' do
     # Test with logSuccess = true
-    result = parse(temp_csv.path, [category], true, true)
+    result = Parser.parse(temp_csv.path, [category], true, true)
     expect(result).to be_a(Analysis)
   end
 end 

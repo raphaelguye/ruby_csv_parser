@@ -5,8 +5,8 @@ require_relative '../../module/model/anomaly'
 require_relative '../../module/model/analyse'
 require_relative '../../module/model/category'
 
-RSpec.describe 'Analyzer' do
-  describe '#analyzePerCriteria' do
+RSpec.describe Analyzer do
+  describe '.analyze_per_criteria' do
     let(:anomalies) do
       [
         Anomaly.new("CO", "Category1", "Adults", 1.5, "raw1"),
@@ -20,7 +20,7 @@ RSpec.describe 'Analyzer' do
     let(:number_of_analyses) { 100 }  # Total number of analyses performed
 
     it 'correctly counts anomalies per criteria' do
-      result = analyzePerCriteria(anomalies, number_of_analyses)
+      result = Analyzer.analyze_per_criteria(anomalies, number_of_analyses)
       
       expect(result).to be_an(Array)
       expect(result.size).to eq(3)  # Should have results for CO, DF, and Acro
@@ -35,7 +35,7 @@ RSpec.describe 'Analyzer' do
     end
 
     it 'calculates correct percentages' do
-      result = analyzePerCriteria(anomalies, number_of_analyses)
+      result = Analyzer.analyze_per_criteria(anomalies, number_of_analyses)
       
       co_analysis = result.find { |a| a.criteria == "CO" }
       expect(co_analysis.percentage).to eq(2)  # (2/100) * 100 = 2%
@@ -45,12 +45,12 @@ RSpec.describe 'Analyzer' do
     end
 
     it 'handles empty anomalies list' do
-      result = analyzePerCriteria([], number_of_analyses)
+      result = Analyzer.analyze_per_criteria([], number_of_analyses)
       expect(result).to be_empty
     end
   end
 
-  describe '#analyzePerGroup' do
+  describe '.analyze_per_group' do
     let(:anomalies) do
       [
         Anomaly.new("CO", "Category1", "Adults", 1.5, "raw1"),
@@ -71,7 +71,7 @@ RSpec.describe 'Analyzer' do
     end
 
     it 'correctly counts anomalies per group' do
-      result = analyzePerGroup(anomalies, csv_content)
+      result = Analyzer.analyze_per_group(anomalies, csv_content)
       
       expect(result).to be_an(Array)
       expect(result.size).to eq(3)  # Should have results for all three groups
@@ -86,7 +86,7 @@ RSpec.describe 'Analyzer' do
     end
 
     it 'calculates percentages based on total entries per group' do
-      result = analyzePerGroup(anomalies, csv_content)
+      result = Analyzer.analyze_per_group(anomalies, csv_content)
       
       adults = result.find { |a| a.criteria == "Adults" }
       expect(adults.number_of_analyses).to be > 0
@@ -100,14 +100,14 @@ RSpec.describe 'Analyzer' do
         1,Test1,Rock'n'Roll-Main Class Start,1,1,J1,8.0
       CSV
 
-      result = analyzePerGroup(anomalies, empty_group_csv)
+      result = Analyzer.analyze_per_group(anomalies, empty_group_csv)
       
       formations = result.find { |a| a.criteria == "Formations" }
       expect(formations.percentage).to eq(0)
     end
 
     it 'handles empty anomalies list' do
-      result = analyzePerGroup([], csv_content)
+      result = Analyzer.analyze_per_group([], csv_content)
       
       expect(result).to be_an(Array)
       expect(result.size).to eq(3)  # Should still return all groups
