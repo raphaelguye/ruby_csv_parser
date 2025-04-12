@@ -145,9 +145,6 @@ module CsvParser
 
         <div class="section">
           <h2>Anomalies per Criteria</h2>
-          <div class="chart-container">
-            <canvas id="anomaliesPerCriteriaChart" data-criteria='#{generate_criteria_data(analysis_acro, analysis_dance).to_json}'></canvas>
-          </div>
           #{generate_criteria_table(analysis_acro, analysis_dance)}
         </div>
 
@@ -158,23 +155,6 @@ module CsvParser
 
         #{generate_top_anomalies_section(base_prefix, analysis_acro, analysis_dance)}
       HTML
-    end
-
-    def generate_criteria_data(analysis_acro, analysis_dance)
-      combined_analysis = Analyzer.analyze_per_criteria(
-        analysis_dance.anomalies,
-        analysis_dance.number_of_analyses / $criterias_couples_dance.count
-      ) + Analyzer.analyze_per_criteria(
-        analysis_acro.anomalies,
-        analysis_acro.number_of_analyses
-      )
-      
-      combined_analysis.sort_by { |analysis| -analysis.percentage }.map do |analysis|
-        {
-          criteria: Translator.translate(analysis.criteria),
-          percentage: analysis.percentage
-        }
-      end
     end
 
     def generate_criteria_table(analysis_acro, analysis_dance)

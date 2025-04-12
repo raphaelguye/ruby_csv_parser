@@ -43,33 +43,6 @@ function initializeCharts() {
       }
     });
   }
-
-  // Anomalies per criteria chart
-  const criteriaCtx = document.getElementById('anomaliesPerCriteriaChart');
-  if (criteriaCtx) {
-    const criteriaData = JSON.parse(criteriaCtx.dataset.criteria);
-    new Chart(criteriaCtx, {
-      type: 'bar',
-      data: {
-        labels: criteriaData.map(item => item.criteria),
-        datasets: [{
-          label: 'Percentage of Anomalies',
-          data: criteriaData.map(item => item.percentage),
-          backgroundColor: 'rgba(52, 152, 219, 0.8)'
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 100
-          }
-        }
-      }
-    });
-  }
 }
 
 // Add smooth scrolling for anchor links
