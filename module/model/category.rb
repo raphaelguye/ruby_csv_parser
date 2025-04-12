@@ -7,7 +7,6 @@ class Category < Struct.new(:name, :criterias, :group, :alias, :round_to_skip)
     end
 end
 
-# Constants should be defined in a more Ruby-like way
 module Categories
     DANCE = [
         Category.new("Rock'n'Roll-Beginners", $criterias_couples_dance, "Juniors", [], []),
