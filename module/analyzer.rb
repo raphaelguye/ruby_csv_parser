@@ -1,50 +1,38 @@
 require 'csv'
 require './module/model/anomaly.rb'
 
-def analyzePerCriteria(anomalies,number_of_analyses)
+module Analyzer
+  def self.analyze_per_criteria(anomalies, number_of_analyses)
     criteria_counter = Hash.new(0)
-    anomalies.each do |anomaly|
-        criteria_counter[anomaly.criteria] += 1
+    anomalies.each { |anomaly| criteria_counter[anomaly.criteria] += 1 }
+
+    criteria_counter.map do |criteria, count|
+      percentage = (100 * (count / number_of_analyses.to_f).round(2)).to_i
+      AnalysisPerCriteria.new(criteria, count, number_of_analyses, percentage)
+    end
+  end
+
+  def self.analyze_per_group(anomalies, content_csv)
+    nb_entries_per_group = Hash.new(0).tap do |h|
+      %w[Juniors Adults Formations].each { |group| h[group] = 0 }
     end
 
-    analysisPerCriteria = []
-    criteria_counter.each do |criteria, count|
-        percentage = (100 * (count / number_of_analyses.to_f).round(2)).to_i
-        analysisPerCriteria.append(AnalysisPerCriteria.new(criteria, count, number_of_analyses, percentage))
-    end      
-    
-    return analysisPerCriteria
-end
-
-def analyzePerGroup(anomalies,content_csv)
-    nb_entries_per_group = Hash.new(0)
-    nb_entries_per_group["Juniors"] = 0
-    nb_entries_per_group["Adults"] = 0
-    nb_entries_per_group["Formations"] = 0
-
-    data = CSV.parse(content_csv, headers: false)
-    data.each do |line|
-        group = Category.get_group(line[2])
-        nb_entries_per_group[group] += 1
+    # Count entries per group
+    CSV.parse(content_csv, headers: false).each do |line|
+      group = Category.get_group(line[2])
+      nb_entries_per_group[group] += 1
     end
 
-    group_counter = Hash.new(0)
-    group_counter["Juniors"] = 0
-    group_counter["Adults"] = 0
-    group_counter["Formations"] = 0
-    anomalies.each do |anomaly|
-        group_counter[anomaly.group] += 1
+    # Count anomalies per group
+    group_counter = Hash.new(0).tap do |h|
+      %w[Juniors Adults Formations].each { |group| h[group] = 0 }
     end
+    anomalies.each { |anomaly| group_counter[anomaly.group] += 1 }
 
-    analysisPerGroup = []
-    group_counter.each do |group, count|
-        if nb_entries_per_group[group] > 0
-            percentage = (100 * (count / nb_entries_per_group[group].to_f).round(2)).to_i
-        else
-            percentage = 0
-        end
-        analysisPerGroup.append(AnalysisPerCriteria.new(group, count, nb_entries_per_group[group], percentage))
-    end      
-    
-    return analysisPerGroup
+    group_counter.map do |group, count|
+      percentage = nb_entries_per_group[group] > 0 ? 
+        (100 * (count / nb_entries_per_group[group].to_f).round(2)).to_i : 0
+      AnalysisPerCriteria.new(group, count, nb_entries_per_group[group], percentage)
+    end
+  end
 end
