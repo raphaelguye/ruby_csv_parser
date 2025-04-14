@@ -179,6 +179,13 @@ module CsvParser
           <tbody>
             #{combined_analysis.sort_by { |analysis| -analysis.percentage }.map do |analysis|
               translated_criteria = Translator.translate(analysis.criteria)
+              color = if analysis.percentage < 10
+                        'green'
+                      elsif analysis.percentage < 20
+                        'yellow'
+                      else
+                        'red'
+                      end
               <<~ROW
                 <tr>
                   <td>#{translated_criteria}</td>
@@ -186,7 +193,7 @@ module CsvParser
                   <td>#{analysis.number_of_analyses}</td>
                   <td>
                     <div class="progress-bar">
-                      <div class="progress-bar-fill" data-percentage="#{analysis.percentage}"></div>
+                      <div class="progress-bar-fill" style="background-color: #{color};" data-percentage="#{analysis.percentage}"></div>
                     </div>
                     #{analysis.percentage}%
                   </td>
@@ -215,6 +222,13 @@ module CsvParser
           <tbody>
             #{analysis_per_group.sort_by { |analysis| -analysis.percentage }.map do |analysis|
               translated_criteria = Translator.translate(analysis.criteria)
+              color = if analysis.percentage < 10
+                        'green'
+                      elsif analysis.percentage < 20
+                        'yellow'
+                      else
+                        'red'
+                      end
               <<~ROW
                 <tr>
                   <td>#{translated_criteria}</td>
@@ -222,7 +236,7 @@ module CsvParser
                   <td>#{analysis.number_of_analyses}</td>
                   <td>
                     <div class="progress-bar">
-                      <div class="progress-bar-fill" data-percentage="#{analysis.percentage}"></div>
+                      <div class="progress-bar-fill" style="background-color: #{color};" data-percentage="#{analysis.percentage}"></div>
                     </div>
                     #{analysis.percentage}%
                   </td>
