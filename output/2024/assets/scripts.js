@@ -13,36 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeCharts() {
-  // Anomalies per part chart
-  const partCtx = document.getElementById('anomaliesPerPartChart');
-  if (partCtx) {
-    new Chart(partCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Dancing Part', 'Acrobatic Part'],
-        datasets: [{
-          label: 'Number of Anomalies',
-          data: [
-            parseInt(document.getElementById('danceAnomalies').textContent),
-            parseInt(document.getElementById('acroAnomalies').textContent)
-          ],
-          backgroundColor: [
-            'rgba(52, 152, 219, 0.8)',
-            'rgba(46, 204, 113, 0.8)'
-          ]
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
+  // Removed the chart initialization for anomaliesPerPartChart
 }
 
 // Add smooth scrolling for anchor links
@@ -53,4 +24,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       behavior: 'smooth'
     });
   });
-}); 
+});

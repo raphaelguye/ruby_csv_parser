@@ -154,9 +154,6 @@ module CsvParser
             </div>
           </div>
           
-          <div class="chart-container">
-            <canvas id="anomaliesPerPartChart"></canvas>
-          </div>
         </div>
 
         <div class="section">
