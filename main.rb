@@ -167,7 +167,13 @@ module CsvParser
       )
       
       <<~HTML
-        <table>
+        <table class="uniform-table">
+          <colgroup>
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+          </colgroup>
           <thead>
             <tr>
               <th>Criteria</th>
@@ -180,7 +186,7 @@ module CsvParser
             #{combined_analysis.sort_by { |analysis| -analysis.percentage }.map do |analysis|
               translated_criteria = Translator.translate(analysis.criteria)
               color = if analysis.percentage < 10
-                        'green'
+                        'darkgreen'
                       elsif analysis.percentage < 20
                         'yellow'
                       else
@@ -210,7 +216,13 @@ module CsvParser
       analysis_per_group = Analyzer.analyze_per_group(all_anomalies, content_csv)
       
       <<~HTML
-        <table>
+        <table class="uniform-table">
+          <colgroup>
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">
+          </colgroup>
           <thead>
             <tr>
               <th>Group</th>
@@ -223,7 +235,7 @@ module CsvParser
             #{analysis_per_group.sort_by { |analysis| -analysis.percentage }.map do |analysis|
               translated_criteria = Translator.translate(analysis.criteria)
               color = if analysis.percentage < 10
-                        'green'
+                        'darkgreen'
                       elsif analysis.percentage < 20
                         'yellow'
                       else
