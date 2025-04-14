@@ -172,9 +172,9 @@ module CsvParser
 
     def progress_bar_color(percentage)
       if percentage < 10
-        'darkgreen'
+        'green'
       elsif percentage < 20
-        'yellow'
+        'orange'
       else
         'red'
       end
@@ -209,9 +209,9 @@ module CsvParser
             #{combined_analysis.sort_by { |analysis| -analysis.percentage }.map do |analysis|
               translated_criteria = Translator.translate(analysis.criteria)
               color = if analysis.percentage < 10
-                        'darkgreen'
+                        'green'
                       elsif analysis.percentage < 20
-                        'yellow'
+                        'orange'
                       else
                         'red'
                       end
@@ -258,9 +258,9 @@ module CsvParser
             #{analysis_per_group.sort_by { |analysis| -analysis.percentage }.map do |analysis|
               translated_criteria = Translator.translate(analysis.criteria)
               color = if analysis.percentage < 10
-                        'darkgreen'
+                        'green'
                       elsif analysis.percentage < 20
-                        'yellow'
+                        'orange'
                       else
                         'red'
                       end
@@ -294,7 +294,12 @@ module CsvParser
           <h2>Top 5 Anomalies</h2>
           <ul class="anomaly-list">
             #{top_anomalies.map do |anomaly|
-              severity_class = anomaly.stdev_ratio > 2 ? "high" : "low"
+              severity_class = case anomaly.stdev_ratio
+                               when ->(r) { r > 2 }
+                                 "high"
+                               else
+                                 "medium"
+                               end
               <<~ANOMALY
                 <li class="anomaly-item #{severity_class}">
                   #{anomaly.raw_entry.gsub("\n", "<br>")}
