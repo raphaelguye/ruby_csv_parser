@@ -199,7 +199,7 @@ module CsvParser
                   <td>#{analysis.number_of_analyses}</td>
                   <td>
                     <div class="progress-bar">
-                      <div class="progress-bar-fill" style="background-color: #{color};" data-percentage="#{analysis.percentage}"></div>
+                      <div class="progress-bar-fill" style="background-color: #{color}; width: #{analysis.percentage}%;"></div>
                     </div>
                     #{analysis.percentage}%
                   </td>
@@ -248,7 +248,7 @@ module CsvParser
                   <td>#{analysis.number_of_analyses}</td>
                   <td>
                     <div class="progress-bar">
-                      <div class="progress-bar-fill" style="background-color: #{color};" data-percentage="#{analysis.percentage}"></div>
+                      <div class="progress-bar-fill" style="background-color: #{color}; width: #{analysis.percentage}%;"></div>
                     </div>
                     #{analysis.percentage}%
                   </td>
