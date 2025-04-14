@@ -5,6 +5,7 @@ require './module/parser.rb'
 require './module/analyzer.rb'
 require './module/utils/translator.rb'
 require 'json'
+require 'ostruct'
 
 module CsvParser
   INPUT_FOLDER  = "./src/2024"
@@ -113,28 +114,43 @@ module CsvParser
     end
 
     def generate_html_body(base_prefix, analysis_acro, analysis_dance, content_csv)
+      total_anomalies = analysis_acro.anomalies.count + analysis_dance.anomalies.count
+      total_analyses = analysis_acro.number_of_analyses + analysis_dance.number_of_analyses
+      total_percentage = calculate_percentage(OpenStruct.new(anomalies: OpenStruct.new(count: total_anomalies), number_of_analyses: total_analyses))
+
       <<~HTML
         <h1>Analysis Summary - #{base_prefix}</h1>
         
         <div class="section">
           <h2>Overview</h2>
-          <div class="summary-grid">
+          <div class="summary-grid" style="margin-bottom: 20px;">
+            <div class="summary-card">
+              <h3>Total Anomalies</h3>
+              <div class="value" id="totalAnomalies">#{total_anomalies} / #{total_analyses}</div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="background-color: #{progress_bar_color(total_percentage)}; width: #{total_percentage}%;"></div>
+              </div>
+              <p>#{total_percentage}% anomalies</p>
+            </div>
+          </div>
+
+          <div class="summary-grid" style="margin-top: 10px;">
             <div class="summary-card">
               <h3>Dancing Part Anomalies</h3>
-              <div class="value" id="danceAnomalies">#{analysis_dance.anomalies.count}</div>
+              <div class="value" id="danceAnomalies">#{analysis_dance.anomalies.count} / #{analysis_dance.number_of_analyses}</div>
               <div class="progress-bar">
-                <div class="progress-bar-fill" data-percentage="#{calculate_percentage(analysis_dance)}"></div>
+                <div class="progress-bar-fill" style="background-color: #{progress_bar_color(calculate_percentage(analysis_dance))}; width: #{calculate_percentage(analysis_dance)}%;"></div>
               </div>
-              <p>#{analysis_dance.number_of_analyses} analyses performed</p>
+              <p>#{calculate_percentage(analysis_dance)}% anomalies</p>
             </div>
             
             <div class="summary-card">
               <h3>Acrobatic Part Anomalies</h3>
-              <div class="value" id="acroAnomalies">#{analysis_acro.anomalies.count}</div>
+              <div class="value" id="acroAnomalies">#{analysis_acro.anomalies.count} / #{analysis_acro.number_of_analyses}</div>
               <div class="progress-bar">
-                <div class="progress-bar-fill" data-percentage="#{calculate_percentage(analysis_acro)}"></div>
+                <div class="progress-bar-fill" style="background-color: #{progress_bar_color(calculate_percentage(analysis_acro))}; width: #{calculate_percentage(analysis_acro)}%;"></div>
               </div>
-              <p>#{analysis_acro.number_of_analyses} analyses performed</p>
+              <p>#{calculate_percentage(analysis_acro)}% anomalies</p>
             </div>
           </div>
           
@@ -155,6 +171,16 @@ module CsvParser
 
         #{generate_top_anomalies_section(base_prefix, analysis_acro, analysis_dance)}
       HTML
+    end
+
+    def progress_bar_color(percentage)
+      if percentage < 10
+        'darkgreen'
+      elsif percentage < 20
+        'yellow'
+      else
+        'red'
+      end
     end
 
     def generate_criteria_table(analysis_acro, analysis_dance)
