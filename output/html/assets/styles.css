@@ -132,6 +132,20 @@ th {
   border-left-color: var(--success-color);
 }
 
+/* Styles for the index.html page */
+.year-section {
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   body {
     padding: 2rem;
@@ -160,4 +174,4 @@ th {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-} 
+}
