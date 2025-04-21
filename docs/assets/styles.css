@@ -146,6 +146,34 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Styles for making the competition list more mobile-friendly */
+.year-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.year-section ul li {
+    margin: 10px 0;
+}
+
+.year-section ul li a {
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+}
+
+.year-section ul li a:active,
+.year-section ul li a:focus,
+.year-section ul li a:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
 @media (min-width: 768px) {
   body {
     padding: 2rem;
