@@ -10,7 +10,7 @@ require 'ostruct'
 module CsvParser
   INPUT_FOLDER  = "./src/2024"
   OUTPUT_CSV_FOLDER = "./output/csv/2024"
-  OUTPUT_HTML_FOLDER = "./output/html/2024"
+  OUTPUT_HTML_FOLDER = "./docs/2024"
 
   class Runner
     def self.run
