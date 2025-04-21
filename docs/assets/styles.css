@@ -203,3 +203,17 @@ a:hover {
     print-color-adjust: exact;
   }
 }
+
+.stacked {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .uniform-table {
+    display: none;
+  }
+  .stacked {
+    display: table;
+    width: 100%;
+  }
+}

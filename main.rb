@@ -109,6 +109,8 @@ module CsvParser
           <title>Analysis Summary - #{base_prefix}</title>
           <link rel="stylesheet" href="../assets/styles.css">
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable.js/1.0.3/stacktable.min.js"></script>
         </head>
         <body>
       HTML
@@ -315,6 +317,13 @@ module CsvParser
     def generate_html_footer
       <<~HTML
           <script src="../assets/scripts.js"></script>
+          <script>
+          $(document).ready(function() {
+            $('.uniform-table').each(function() {
+              $(this).stacktable({myClass:'stacked'});
+            });
+          });
+        </script>
         </body>
         </html>
       HTML
