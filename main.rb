@@ -9,7 +9,8 @@ require 'ostruct'
 
 module CsvParser
   INPUT_FOLDER  = "./src/2024"
-  OUTPUT_FOLDER = "./output/2024"
+  OUTPUT_CSV_FOLDER = "./output/csv/2024"
+  OUTPUT_HTML_FOLDER = "./output/html/2024"
 
   class Runner
     def self.run
@@ -67,7 +68,7 @@ module CsvParser
     end
 
     def generate_report_csv(base_prefix, content_csv)
-      output_file = File.join(OUTPUT_FOLDER, "#{base_prefix}_report.csv")
+      output_file = File.join(OUTPUT_CSV_FOLDER, "#{base_prefix}_report.csv")
       File.open(output_file, "w") do |f|
         f.write("anomaly,competition,category name,round,heat,couple,criteria,stdev,threshold,ratio,raw data\n")
         f.write(content_csv)
@@ -76,7 +77,7 @@ module CsvParser
     end
 
     def generate_summary_csv(base_prefix, analysis_acro, analysis_dance, content_csv)
-      output_file = File.join(OUTPUT_FOLDER, "#{base_prefix}_summary.csv")
+      output_file = File.join(OUTPUT_CSV_FOLDER, "#{base_prefix}_summary.csv")
       File.open(output_file, "w") do |f|
         write_summary_header(f)
         write_anomalies_per_part(f, analysis_acro, analysis_dance)
@@ -88,7 +89,7 @@ module CsvParser
     end
 
     def generate_summary_html(base_prefix, analysis_acro, analysis_dance, content_csv)
-      output_file = File.join(OUTPUT_FOLDER, "#{base_prefix}_summary.html")
+      output_file = File.join(OUTPUT_HTML_FOLDER, "#{base_prefix}_summary.html")
       File.open(output_file, "w") do |f|
         f.write(generate_html_header(base_prefix))
         f.write(generate_html_body(base_prefix, analysis_acro, analysis_dance, content_csv))
@@ -106,7 +107,7 @@ module CsvParser
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Analysis Summary - #{base_prefix}</title>
-          <link rel="stylesheet" href="assets/styles.css">
+          <link rel="stylesheet" href="../assets/styles.css">
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </head>
         <body>
@@ -313,7 +314,7 @@ module CsvParser
 
     def generate_html_footer
       <<~HTML
-          <script src="assets/scripts.js"></script>
+          <script src="../assets/scripts.js"></script>
         </body>
         </html>
       HTML
