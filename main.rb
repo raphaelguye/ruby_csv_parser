@@ -8,9 +8,9 @@ require 'json'
 require 'ostruct'
 
 module CsvParser
-  INPUT_FOLDER  = "./src/2024"
-  OUTPUT_CSV_FOLDER = "./output/csv/2024"
-  OUTPUT_HTML_FOLDER = "./docs/2024"
+  INPUT_FOLDER  = "./src/2025"
+  OUTPUT_CSV_FOLDER = "./output/csv/2025"
+  OUTPUT_HTML_FOLDER = "./docs/2025"
 
   class Runner
     def self.run
