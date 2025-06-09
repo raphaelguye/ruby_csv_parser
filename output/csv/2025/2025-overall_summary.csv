@@ -1,20 +1,20 @@
 Summary
 
 Number of anomalies per part,nb of anomalies, nb of analysis made,percentage of anomalies
-Dancing part,74,2382,3%
-Acrobatic part,47,1098,4%
+Dancing part,137,3198,4%
+Acrobatic part,54,1434,4%
 
 Number of anomalies per criteria,nb of anomalies, nb of analysis made,percentage of anomalies
-Footwork woman (FW),17,397,4%
-Small mistakes (SM),17,397,4%
-Big mistakes (BM),14,397,4%
-Acrobatic figure (Acro 1 to 6),47,1098,4%
-Footwork man (FM),11,397,3%
-Dance Figure (DF),8,397,2%
-Choregraphy (CO),7,397,2%
+Footwork woman (FW),34,533,6%
+Choregraphy (CO),26,533,5%
+Dance Figure (DF),23,533,4%
+Small mistakes (SM),22,533,4%
+Acrobatic figure (Acro 1 to 6),54,1434,4%
+Footwork man (FM),17,533,3%
+Big mistakes (BM),15,533,3%
 
 Number of anomalies per group,nb of anomalies, nb of analysis made,percentage of anomalies
-Formations,25,624,4%
-Juniors,13,402,3%
-Adults,83,2454,3%
+Juniors,41,630,7%
+Adults,115,3198,4%
+Formations,35,804,4%
 
